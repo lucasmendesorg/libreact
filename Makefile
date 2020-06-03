@@ -7,10 +7,16 @@
 LDFLAGS	=
 
    OBJS	= main.o debug.o event.o observable.o observer.o
+
    AOUT	= react
 
 all: $(OBJS)
 	$(CC) -o $(AOUT) $(OBJS) $(LDFLAGS)
+
+debug: $(OBJS)
+	$(CC) -o $(AOUT) $(OBJS) $(LDFLAGS)
+
+debug: CFLAGS += -DDEBUG
 
 clean:
 	$(RM) $(OBJS) $(AOUT)
