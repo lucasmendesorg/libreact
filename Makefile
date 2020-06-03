@@ -3,10 +3,10 @@
 #
 
      CC	= cc
- CFLAGS	= -Wall
+ CFLAGS	= -O3 -Wall -funroll-loops -I.
 LDFLAGS	=
 
-   OBJS	= main.o
+   OBJS	= main.o debug.o event.o observable.o observer.o
    AOUT	= react
 
 all: $(OBJS)
