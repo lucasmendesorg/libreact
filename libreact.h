@@ -14,7 +14,11 @@ typedef struct Observable {
 	void (*callback)(struct Observable *, int event);
 } Observable;
 
+#ifdef DEBUG
 int debugf(const char *who, const char *fmt, ...);
+#else
+#define debugf(...)
+#endif
 
 Observable *SendEventToObservable(Observable *observable, int event);
 

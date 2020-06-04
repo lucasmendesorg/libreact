@@ -3,11 +3,7 @@
 		(c) 2020 Lucas Mendes <lucas AT lucasmendes.org>
 */
 
-/*
-	Updates:
-		Wed Jun  3 13:50:36 -03 2020	-- First version
-*/
-
+#include <stdio.h>
 #include <stdlib.h>
 #include <libreact.h>
 
@@ -36,14 +32,14 @@ int main() {
 	{
 		Observable *o;
 		for(o = ob; o; o = o->next) {
-			debugf(NULL, "Observer %p has callback = %p, ptr = '%s'",
+			debugf(MYSELF, "Observer %p has callback = %p, ptr = '%s'",
 				o, o->callback, (char *) o->ptr);
 		}
 	}
 	SendEventToObservable(ob, 777);
-	debugf(NULL, "Removing [the first] observer %p before DestroyObservable()", callback);
+	debugf(MYSELF, "Removing [the first] observer %p before DestroyObservable()", callback);
 	ob = RemoveObserver(ob, callback);
-	debugf(NULL, "Removing observer %p before DestroyObservable()", callback3);
+	debugf(MYSELF, "Removing observer %p before DestroyObservable()", callback3);
 	RemoveObserver(ob, callback3);
 	SendEventToObservable(ob, 555);
 	DestroyObservable(ob);

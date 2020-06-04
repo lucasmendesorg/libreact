@@ -7,6 +7,7 @@
 #include <stdarg.h>
 #include <libreact.h>
 
+#ifdef DEBUG
 int debugf(const char *who, const char *fmt, ...) {
 	va_list args;
 	char buffer[4096];
@@ -16,3 +17,4 @@ int debugf(const char *who, const char *fmt, ...) {
 	if(!who) who = "";
 	return printf("%24s - %s\n", who, buffer);
 }
+#endif
